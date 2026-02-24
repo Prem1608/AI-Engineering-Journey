@@ -1,13 +1,11 @@
 
-def twoSum(nums, target):
-    l = len(nums)
-    for i in range(0,l):
-        a = nums[i]
-        for j in range(i+1,l):
-            b = nums[j]
-            sum = a+b
-            if target==sum:
-                return [i,j]
+def twoSum(nums,target):
+    prevMap = {}
+    for i,n in enumerate(nums):
+        diff = target-n
+        if diff in prevMap:
+            return [prevMap[diff],i]
+        prevMap[n]= i
 
 nums = [2,7,11,15]
 target =26
